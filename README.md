@@ -13,7 +13,7 @@
 **Senior Engineer – DevOps @ Ericsson India Global Services**  
 *11 Years Total IT Experience | 6 Years DevOps & Enterprise Linux | Telecom & Networking Foundation*
 
-📍 New Delhi, India &nbsp;|&nbsp; ✉️ [khalil.osama91@gmail.com](mailto:khalil.osama91@gmail.com) &nbsp;|&nbsp; 📞 +91-9430088343 &nbsp;|&nbsp; 💼 [GitHub Profile](https://github.com/khalilosam)
+📍 New Delhi, India &nbsp;|&nbsp; ✉️ [khalil.osama91@gmail.com](mailto:khalil.osama91@gmail.com) &nbsp;|&nbsp; 📞 +91-9430088343 &nbsp;|&nbsp; 💼 [GitHub Profile](https://github.com/khalilosam) &nbsp;|&nbsp; 🔗 [LinkedIn](https://www.linkedin.com/in/osama-khalil-20525227/)
 
 </div>
 
@@ -218,6 +218,7 @@ AUTOMATION & COLLABORATION:
 * **Email:** [khalil.osama91@gmail.com](mailto:khalil.osama91@gmail.com)
 * **Phone:** +91-9430088343
 * **Location:** New Delhi, India
+* **LinkedIn:** [linkedin.com/in/osama-khalil-20525227](https://www.linkedin.com/in/osama-khalil-20525227/)
 * **GitHub:** [github.com/khalilosam](https://github.com/khalilosam)
 
 ---
