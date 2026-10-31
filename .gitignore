@@ -1,0 +1,4 @@
+# Ignore nested project workspaces
+projects/
+*.log
+*.tmp

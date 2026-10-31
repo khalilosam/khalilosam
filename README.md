@@ -22,10 +22,23 @@
 
 Senior DevOps Engineer with **11 years of total IT industry experience**, including **6 years specializing in DevOps engineering, cloud architecture automation, and enterprise Linux administration**, built upon a robust telecom and core networking foundation.
 
-- **Cloud & Automation Specialist:** Expert in architecting, provisioning, and managing enterprise cloud infrastructure on **Microsoft Azure** using **Terraform (Infrastructure as Code)** with reusable modules, remote state locking, and multi-environment workspace management across Dev, Stage, and Production.
-- **Continuous Delivery & Git Governance:** Proven track record designing and maintaining enterprise CI/CD workflows using **Azure DevOps Pipelines** and **GitHub Actions**, enforcing trunk-based branching, pull request policies, and automated shift-left security checks (**Checkov**, **tfsec**, **tflint**).
+- **Cloud & Automation Specialist:** Expert in architecting, provisioning, and managing enterprise cloud infrastructure on **Microsoft Azure** using **Terraform (Infrastructure as Code)** with reusable modules (`for_each`, complex `map` data structures, and `dynamic` blocks), remote state locking, and multi-environment workspace management across Dev, Stage, and Production.
+- **Continuous Delivery & Git Governance:** Proven track record designing and maintaining enterprise CI/CD workflows using **Azure DevOps Pipelines** and **GitHub Actions**, enforcing trunk-based branching, pull request policies, and automated shift-left security checks (**Checkov**, **tfsec**, **tflint**, **Bandit SAST**).
 - **Enterprise Linux Administration:** Deep hands-on proficiency in **RHEL** and **Ubuntu**, including performance tuning, OS patching, systemd service management, reverse proxies (**Nginx**), and shell automation (**Bash**).
-- **Telecom & Networking Roots:** Comprehensive Layer 2–4 networking knowledge (**TCP/IP, DNS, VLANs, routing, iptables, tcpdump, Wireshark**) combined with hands-on 4G/5G cellular site commissioning and NOC/BSS operations.
+- **Telecom & Networking Roots:** Comprehensive Layer 2–4 networking knowledge (**TCP/IP, DNS, VLANs, 802.3ad LACP bonding, iptables, tcpdump, Wireshark**) combined with hands-on 4G/5G cellular site commissioning and NOC/BSS operations across Africa (Kenya, Zambia, Malawi, Namibia).
+
+---
+
+## 📦 Featured Open-Source Engineering Repositories
+
+Explore my production-ready codebases and architecture implementations:
+
+| Repository | Focus & Technologies | Key Capabilities | Link |
+| :--- | :--- | :--- | :--- |
+| **`terraform-azure-enterprise-modules`** | Azure, Terraform 1.7+, IaC, Checkov | Production-ready child modules built with `for_each`, `map(object)`, and `dynamic` blocks. Complete 3-tier NMS reference deployment (VNet, Subnets, NSG, Linux VM, PostgreSQL Flexible Server, Storage Static Website, Key Vault). | [📂 Explore Code](https://github.com/khalilosam/terraform-azure-enterprise-modules) |
+| **`telecom-nms-azure-platform`** | FastAPI, PostgreSQL, Nginx, Linux, Python | Enterprise Telecom NOC & Fault Management Platform. Ingests live RAN alarms (VSWR degradation, AC mains loss, CPRI link faults), cell site inventory across regional hubs, dark-mode NOC dashboard, and systemd daemon. | [📂 Explore Code](https://github.com/khalilosam/telecom-nms-azure-platform) |
+| **`azure-devops-cicd-pipelines`** | Azure DevOps, GitHub Actions, YAML, SAST | Multi-stage YAML pipelines with Flake8 linting, Bandit SAST security scans, Pytest with Cobertura coverage, Checkov IaC security gates, multi-environment deployment (`Dev` → `Stage` → `Prod`), and automated rollbacks. | [📂 Explore Code](https://github.com/khalilosam/azure-devops-cicd-pipelines) |
+| **`linux-telecom-automation-scripts`** | RHEL, Ubuntu, Bash, Python, Prometheus | Carrier-grade Linux administration toolkit: 3GPP packet captures (GTP-U, Diameter, SIP, S1-AP), 802.3ad LACP network bonding, iptables security hardening, SNMP trap receiver daemon, and Prometheus RAN KPI exporter. | [📂 Explore Code](https://github.com/khalilosam/linux-telecom-automation-scripts) |
 
 ---
 
@@ -56,6 +69,8 @@ Comprehensive architecture board detailing my career progression, core technical
 
 A resilient, highly secure 3-tier cloud architecture designed to collect, process, and display telecom network alarms and topology metrics for 24/7 Network Operations Center (NOC) engineers.
 
+🔗 **Live Code Repository:** [`khalilosam/telecom-nms-azure-platform`](https://github.com/khalilosam/telecom-nms-azure-platform)
+
 <div align="center">
   <img src="assets/diagrams/02-azure-nms-architecture.png" alt="Telecom Network Management System (NMS) - Azure Architecture" width="100%">
 </div>
@@ -72,7 +87,7 @@ A resilient, highly secure 3-tier cloud architecture designed to collect, proces
 
 * **Presentation Layer (Frontend):**
   * Hosted on **Azure Storage Static Website** in the `$web` blob container.
-  * Serves a Single Page Application (SPA) frontend directly over HTTPS (Port 443) with TLS 1.3 encryption.
+  * Serves a Single Page Application (SPA) NOC dashboard directly over HTTPS (Port 443) with TLS 1.3 encryption.
   * Serverless, auto-scaling, and completely decoupled from the backend application runtime.
 * **Backend Application Tier:**
   * Provisioned inside an isolated Azure Virtual Network (`10.0.0.0/16`) within the `snet-backend-app` (`10.0.2.0/24`) subnet.
@@ -93,6 +108,8 @@ A resilient, highly secure 3-tier cloud architecture designed to collect, proces
 
 Fully automated infrastructure provisioning pipeline enforcing modular development, remote state locking on Azure Storage, and shift-left security checks.
 
+🔗 **Live Code Repository:** [`khalilosam/terraform-azure-enterprise-modules`](https://github.com/khalilosam/terraform-azure-enterprise-modules)
+
 <div align="center">
   <img src="assets/diagrams/03-terraform-workflow.png" alt="Terraform Infrastructure as Code Automation Workflow" width="100%">
 </div>
@@ -106,7 +123,8 @@ Fully automated infrastructure provisioning pipeline enforcing modular developme
 </p>
 
 #### Key Terraform Engineering Capabilities:
-* **Reusable Child Modules:** Standardized modules for `vnet`, `subnets`, `nsg`, `linux_vm`, `postgresql`, `storage_account`, and `key_vault`.
+* **Advanced HCL Constructs:** Production modules utilizing `for_each` over maps, dynamic blocks (`dynamic "security_rule"`, `dynamic "access_policy"`), and input validation blocks.
+* **Reusable Child Modules:** Standardized modules for `vnet`, `subnets`, `nsg`, `linux_vm`, `postgresql_flexible`, `storage_account`, and `key_vault`.
 * **Remote State Management:** Centralized state hosted in Azure Blob Storage (`sttfstateprod01/tfstate`) with automated blob lease-based distributed locking to prevent concurrency collisions.
 * **Workspace Isolation:** Clean environment separation using Terraform workspaces (`dev`, `stage`, `prod`) paired with environment-specific `.tfvars`.
 * **Shift-Left Security Gate:** Automated CI validation using `terraform fmt -check`, `terraform validate`, `tflint`, and security policy scanners (`Checkov`, `tfsec`) prior to generating `terraform plan`.
@@ -117,6 +135,8 @@ Fully automated infrastructure provisioning pipeline enforcing modular developme
 ### 4. Enterprise CI/CD Pipeline Architecture
 
 End-to-end continuous integration and deployment flow implemented using **Azure DevOps Pipelines** and **GitHub Actions** with YAML configurations.
+
+🔗 **Live Code Repository:** [`khalilosam/azure-devops-cicd-pipelines`](https://github.com/khalilosam/azure-devops-cicd-pipelines)
 
 <div align="center">
   <img src="assets/diagrams/04-cicd-pipeline.png" alt="Enterprise CI/CD Pipeline Architecture" width="100%">
@@ -132,13 +152,13 @@ End-to-end continuous integration and deployment flow implemented using **Azure 
 
 #### Pipeline Execution Stages:
 1. **Developer Inner Loop:** Feature branches (`feat/*`) branched from `main`, tested locally with `pytest` and formatted with `flake8`/`black`.
-2. **Branch Protection & Code Reviews:** Enforced pull request policies requiring 2 peer reviews, green CI checks, and linked JIRA tickets before merge.
+2. **Branch Protection & Code Reviews:** Enforced pull request policies requiring peer reviews, green CI checks, and linked JIRA tickets before merge.
 3. **CI Build & Validation:** Multi-stage YAML pipeline executing static analysis, automated unit tests, and Checkov IaC security scanning.
 4. **Artifact Drop:** Generation of immutable drop packages published to Azure Pipeline Artifacts.
 5. **CD Release Stages:**
    * **DEV:** Automated deployment and smoke testing.
    * **STAGE:** Production mirror deployment, database migration dry-run, and integration test suite.
-   * **PROD:** Mandatory Change Advisory Board (CAB) sign-off and zero-downtime rolling reload behind Nginx.
+   * **PROD:** Mandatory Change Advisory Board (CAB) sign-off, canary health probes, and automated rollback upon failure.
 
 ---
 
@@ -161,7 +181,7 @@ CLOUD PLATFORMS:
 └── Microsoft Azure (VNet, Subnets, NSG, VMs, Blob Storage, Key Vault, Azure Monitor, PostgreSQL Flexible, Landing Zone concepts)
 
 INFRASTRUCTURE AS CODE (IaC):
-└── Terraform (Child Modules, Remote State in Azure Storage, Workspaces, Variables/Outputs, tflint, Checkov, tfsec)
+└── Terraform (Child Modules, for_each, Maps, Dynamic Blocks, Remote State in Azure Storage, Workspaces, tflint, Checkov, tfsec)
 
 CI/CD & VERSION CONTROL:
 └── Azure DevOps Pipelines, GitHub Actions, YAML Pipelines, Git, Branch Protection Policies, Pull Request Workflows
@@ -170,7 +190,7 @@ LINUX & SYSTEM ADMINISTRATION:
 └── Red Hat Enterprise Linux (RHEL), Ubuntu, systemd Services, SSH, Bash Scripting, Python, Nginx Reverse Proxy
 
 NETWORKING & TELECOM:
-└── TCP/IP, DNS, Routing, VLANs, iptables Firewalls, tcpdump, Wireshark, 4G/5G RAN Concepts, NOC/BSS Operations
+└── TCP/IP, DNS, Routing, VLANs, 802.3ad LACP Bonding, iptables Firewalls, tcpdump, Wireshark, 4G/5G RAN, NOC/BSS Operations
 
 SECURITY & OBSERVABILITY:
 └── Prometheus, Azure Monitor & Log Analytics, RBAC Least Privilege, Secrets Management, Shift-Left IaC Scanning
