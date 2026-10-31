@@ -8,6 +8,7 @@
 [![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
 [![Linux](https://img.shields.io/badge/Linux_RHEL_%26_Ubuntu-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.kernel.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-khalilosam.github.io-success?style=for-the-badge&logo=googlechrome&logoColor=white)](https://khalilosam.github.io/)
 
 **Senior Engineer – DevOps @ Ericsson India Global Services**  
 *11 Years Total IT Experience | 6 Years DevOps & Enterprise Linux | Telecom & Networking Foundation*
@@ -203,6 +204,8 @@ AUTOMATION & COLLABORATION:
 
 ## 🎓 Education & Certifications
 
+* **Master of Business Administration (MBA) — Project Planning & Project Management**  
+  *Jamia Hamdard* | Jun 2025 – Jul 2027
 * **Post Graduate Program in Cloud Computing**  
   *Great Lakes Executive Learning, New Delhi* | October 2024
 * **Bachelor of Technology (B. Tech) — Electronics & Communication Engineering**  
